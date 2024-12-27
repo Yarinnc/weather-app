@@ -2,20 +2,37 @@ import { Grid2 } from '@mui/material';
 
 import CityCard from './CityCard';
 import { City } from '../types/city';
+import { useNavigate } from 'react-router-dom';
 
 interface CityGridProps {
   cities: City[];
 }
 
 const CityGrid: React.FC<CityGridProps> = ({ cities }) => {
+  const navigate = useNavigate();
+  const handleCityClick = (lat: number, lon: number, name: string): void => {
+    // navigate(
+    //   `/city-details?lat=${lat}&lon=${lon}&name=${encodeURIComponent(name)}`
+    // );
+
+    navigate('/city-details');
+    console.log(lat, lon, name);
+  };
+
   return (
     <Grid2
       container
-      spacing={{ xs: 2, md: 3 }}
-      columns={{ xs: 4, sm: 8, md: 12 }}
+      spacing={2}
+      sx={{ display: 'flex', justifyContent: 'center' }}
     >
       {cities.map((city: City) => (
-        <CityCard key={city.name} city={city} />
+        <CityCard
+          key={city.name}
+          city={city}
+          handleClick={() =>
+            handleCityClick(city.coords.lat, city.coords.lng, city.name)
+          }
+        />
       ))}
     </Grid2>
   );
