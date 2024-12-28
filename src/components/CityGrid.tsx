@@ -1,4 +1,4 @@
-import { Grid2 } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 
 import CityCard from './CityCard';
 import { City } from '../types/city';
@@ -17,21 +17,20 @@ const CityGrid: React.FC<CityGridProps> = ({ cities }) => {
   };
 
   return (
-    <Grid2
+    <Grid
       container
       spacing={2}
-      sx={{ display: 'flex', justifyContent: 'center' }}
+      sx={{ display: 'flex', justifyContent: 'center', mt: 3 }}
     >
       {cities.map((city: City) => (
         <CityCard
-          key={city.name}
           city={city}
           handleClick={() =>
             handleCityClick(city.coords.lat, city.coords.lng, city.name)
           }
         />
       ))}
-    </Grid2>
+    </Grid>
   );
 };
 

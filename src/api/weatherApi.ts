@@ -10,16 +10,19 @@ export const weatherApi = createApi({
     baseUrl: `${BASE_URL}`,
   }),
   endpoints: (builder) => ({
-    getCityWeather: builder.query<Weather, { lat: string; lon: string }>({
-      query: ({ lat, lon }) =>
-        `weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`,
+    getCityWeather: builder.query<
+      Weather,
+      { lat: string; lon: string; unit: string }
+    >({
+      query: ({ lat, lon, unit }) =>
+        `weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=${unit}`,
     }),
     getFiveDayForecast: builder.query<
       { list: Weather[] },
-      { lat: string; lon: string }
+      { lat: string; lon: string; unit: string }
     >({
-      query: ({ lat, lon }) =>
-        `forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`,
+      query: ({ lat, lon, unit }) =>
+        `forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=${unit}`,
     }),
   }),
 });

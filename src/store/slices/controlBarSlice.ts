@@ -2,14 +2,14 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 interface ControlBarState {
   searchTerm: string;
   filterContinent: string | null;
-  sortOption: 'name' | 'distance';
+  sortOption: 'name' | 'distance' | null;
   temperatureUnit: 'metric' | 'imperial';
 }
 
 const initialState: ControlBarState = {
   searchTerm: '',
   filterContinent: null,
-  sortOption: 'name',
+  sortOption: null,
   temperatureUnit: 'metric',
 };
 
@@ -23,7 +23,10 @@ const controlBarSlice = createSlice({
     setFilterContinent: (state, action: PayloadAction<string | null>) => {
       state.filterContinent = action.payload;
     },
-    setSortOption: (state, action: PayloadAction<'name' | 'distance'>) => {
+    setSortOption: (
+      state,
+      action: PayloadAction<'name' | 'distance' | null>
+    ) => {
       state.sortOption = action.payload;
     },
     toggleTemperatureUnit: (state) => {

@@ -18,6 +18,11 @@ const CityCard: React.FC<CityCardProps> = ({ city, handleClick }) => {
         borderRadius: '12px',
         cursor: handleClick ? 'pointer' : 'default',
         overflow: 'hidden',
+        transition: 'transform 0.2s, box-shadow 0.2s',
+        '&:hover': {
+          transform: 'scale(1.05)',
+          boxShadow: 6,
+        },
       }}
       onClick={handleClick}
     >
@@ -45,6 +50,7 @@ const CityCard: React.FC<CityCardProps> = ({ city, handleClick }) => {
           background: 'rgba(0,0,0,0.4)',
         }}
       >
+        <Typography variant="h6">{city.name}</Typography>
         <Typography
           variant="h4"
           sx={{

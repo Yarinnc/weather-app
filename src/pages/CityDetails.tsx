@@ -7,6 +7,8 @@ import {
 import WeatherCard from '../components/WeatherCard';
 import ForecastList from '../components/ForecastList';
 import AdditionalWeatherInfo from '../components/AdditionalWeatherInfo';
+import { useSelector } from 'react-redux';
+import { RootState } from '../store/store';
 
 const CityDetails: React.FC = () => {
   const location = useLocation();
@@ -15,21 +17,31 @@ const CityDetails: React.FC = () => {
   const lon = params.get('lon') || '';
   const name = params.get('name');
 
+  const { temperatureUnit } = useSelector(
+    (state: RootState) => state.controlBar
+  );
+
   const {
     data: currentWeather,
     isLoading: loadingCurrentWeather,
     isError: errorCurrentWeather,
-  } = useGetCityWeatherQuery({ lat, lon });
+  } = useGetCityWeatherQuery({ lat, lon, unit: temperatureUnit });
 
   const {
     data: forecastData,
     isLoading: loadingForecast,
     isError: errorForecast,
-  } = useGetFiveDayForecastQuery({ lat, lon });
+  } = useGetFiveDayForecastQuery({ lat, lon, unit: temperatureUnit });
 
   if (errorCurrentWeather || errorForecast) {
     return (
-      <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          mt: 4,
+        }}
+      >
         <Alert severity="error">
           Failed to fetch weather data. Please check your network connection or
           try again later
@@ -43,7 +55,8 @@ const CityDetails: React.FC = () => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        marginTop: 4,
+        marginTop: 10,
+        minHeight: '100vh',
       }}
     >
       <WeatherCard
