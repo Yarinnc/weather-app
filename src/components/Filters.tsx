@@ -18,20 +18,20 @@ const Filters: React.FC = () => {
             borderRadius: '8px',
             background: 'linear-gradient(120deg, #f9f9f9 0%, #eaeafd 100%)',
             '& fieldset': {
-              border: 'none', // Remove the default border
+              border: 'none',
             },
             '&:hover fieldset': {
-              border: 'none', // Remove border on hover
+              border: 'none',
             },
             '&.Mui-focused fieldset': {
-              border: 'none', // Remove border when focused
+              border: 'none',
             },
           },
           '& .MuiInputLabel-root': {
-            color: '#333', // Customize label color if needed
+            color: '#333',
           },
           '& .MuiSelect-select': {
-            paddingRight: '32px', // Ensure proper spacing for the dropdown icon
+            paddingRight: '32px',
           },
         }}
       >

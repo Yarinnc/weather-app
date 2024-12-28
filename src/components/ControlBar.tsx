@@ -1,6 +1,3 @@
-// components/ControlBar.tsx
-
-import React from 'react';
 import { Box } from '@mui/material';
 import SearchInput from './SearchInput';
 import Filters from './Filters';
@@ -12,13 +9,9 @@ const ControlBar: React.FC = () => {
     <Box
       sx={{
         position: 'relative',
-        // // top: 0,
-        // left: 0,
-        // right: 0,
-        // zIndex: 1000,
-        display: 'flex',
 
-        justifyContent: 'center', // Center all items horizontally
+        display: 'flex',
+        justifyContent: 'center',
         alignItems: 'center',
         flexWrap: 'wrap',
         maxWidth: '1200px',
@@ -28,7 +21,7 @@ const ControlBar: React.FC = () => {
       <Box
         sx={{
           display: 'flex',
-          gap: 2, // Controls spacing between items
+          gap: 2,
           flexWrap: 'wrap',
           justifyContent: 'center',
         }}

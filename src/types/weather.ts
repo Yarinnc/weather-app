@@ -1,7 +1,5 @@
-// types/weather.ts
-
 export interface Weather {
-  dt: number; // Unix timestamp for the forecasted time
+  dt: number;
   main: {
     temp: number;
     feels_like: number;

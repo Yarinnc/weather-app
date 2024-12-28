@@ -1,5 +1,3 @@
-// WeatherCard.tsx
-
 import { Card, CircularProgress, Typography, Box } from '@mui/material';
 import { Weather } from '../types/weather';
 import { useSelector } from 'react-redux';
