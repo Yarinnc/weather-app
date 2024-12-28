@@ -11,12 +11,9 @@ interface CityGridProps {
 const CityGrid: React.FC<CityGridProps> = ({ cities }) => {
   const navigate = useNavigate();
   const handleCityClick = (lat: number, lon: number, name: string): void => {
-    // navigate(
-    //   `/city-details?lat=${lat}&lon=${lon}&name=${encodeURIComponent(name)}`
-    // );
-
-    navigate('/city-details');
-    console.log(lat, lon, name);
+    navigate(
+      `/city-details?lat=${lat}&lon=${lon}&name=${encodeURIComponent(name)}`
+    );
   };
 
   return (
