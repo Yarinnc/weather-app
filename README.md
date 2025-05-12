@@ -40,20 +40,6 @@ A modern weather application built with React, TypeScript, and Vite that display
    ```
    The app will be available at http://localhost:5173
 
-## Building for Production
-
-To build the app for production:
-
-```
-npm run build
-```
-
-To preview the production build:
-
-```
-npm run preview
-```
-
 ## Technologies Used
 
 - React 18
